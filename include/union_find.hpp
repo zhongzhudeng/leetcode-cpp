@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 
 class UnionFind {
@@ -12,5 +14,4 @@ class UnionFind {
   UnionFind(int _n);
   int find(int x);
   bool unite(int x, int y);
-  bool connected(int x, int y);
 };

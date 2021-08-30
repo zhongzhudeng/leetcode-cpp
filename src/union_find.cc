@@ -24,9 +24,3 @@ bool UnionFind::unite(int x, int y) {
   --setCount;
   return true;
 }
-
-bool UnionFind::connected(int x, int y) {
-  x = find(x);
-  y = find(y);
-  return x == y;
-}

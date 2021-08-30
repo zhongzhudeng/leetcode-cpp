@@ -4,7 +4,7 @@
 
 ### Build System
 
-* cmake
+* CMake
 * Ninja
 
 ### Recommended Intellisense Engine
@@ -13,5 +13,5 @@
 
 ## Notes
 
-### Tarjan Cutting Edge
+### [Tarjan](docs/Tarjan.md)
 * [1489.findCriticalAndPseudoCriticalEdges](docs/1489.findCriticalAndPseudoCriticalEdges.md#top)

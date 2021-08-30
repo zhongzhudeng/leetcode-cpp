@@ -18,4 +18,5 @@ class TarjanSCC {
   TarjanSCC(int n_, const std::vector<std::vector<int>>& edges_,
             const std::vector<std::vector<int>>& edgesId_);
   std::vector<int> getCuttingEdge();
+  std::vector<int> getCuttingVertex(int u);
 };

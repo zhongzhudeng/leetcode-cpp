@@ -1,0 +1,15 @@
+{
+  "clangd.arguments": [
+    "--query-driver=/usr/bin/clang++",
+    "--background-index",
+    "--compile-commands-dir=build",
+    "--completion-style=bundled",
+    "--header-insertion=iwyu",
+    "--all-scopes-completion",
+    "--fallback-style=Google",
+    "--clang-tidy",
+    "--pch-storage=memory",
+    "-j=12"
+  ],
+  "cmake.generator": "Ninja Multi-Config"
+}

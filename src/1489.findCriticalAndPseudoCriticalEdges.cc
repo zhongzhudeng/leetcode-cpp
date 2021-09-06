@@ -66,7 +66,7 @@ class Solution {
         }
       }
 
-      vector<int> bridges = TarjanSCC(gn, gm, gmid).getCuttingEdge();
+      vector<int> bridges = TarjanRecursive(gn, gm, gmid).getCuttingEdge();
       // 将桥边（关键边）标记为 1
       for (int id : bridges) {
         ans[0].push_back(id);

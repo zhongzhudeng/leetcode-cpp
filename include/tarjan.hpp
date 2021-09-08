@@ -40,16 +40,19 @@ class TarjanNonRecursive : public Tarjan {
   const std::vector<std::vector<Edge>>& edges;
   // low, dfn
   std::vector<std::tuple<int, int>> nodes;
-  std::vector<int> ans;
+  std::vector<int> cutEdge;
+  std::vector<int> cutNode;
   //当前节点,父边,连接点 it
   std::stack<std::tuple<int, int, std::vector<Edge>::const_iterator>> stack;
   int n;
   int ts;
 
-  void getCuttingEdge_(int u);
+  void run();
+  void run_(int u);
 
  public:
   explicit TarjanNonRecursive(int n_,
                               const std::vector<std::vector<Edge>>& edges_);
   std::vector<int> getCuttingEdge() override;
+  std::vector<int> getCuttingNode();
 };

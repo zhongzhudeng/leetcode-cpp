@@ -80,21 +80,26 @@ TEST_CASE("TarjanSCC") {
 
 TarjanNonRecursive::TarjanNonRecursive(int n_,
                                        const vector<vector<Edge>>& edges_)
-    : n(n_), ts(-1), edges(edges_), nodes(n_, make_tuple(-1, -1)) {}
+    : n(n_), ts(-1), edges(edges_), nodes(n_, make_tuple(-1, -1)) {
+  run();
+}
 
-vector<int> TarjanNonRecursive::getCuttingEdge() {
+vector<int> TarjanNonRecursive::getCuttingEdge() { return cutEdge; }
+vector<int> TarjanNonRecursive::getCuttingNode() { return cutNode; }
+
+void TarjanNonRecursive::run() {
   int low;
   for (size_t i = 0; i < n; i++) {
     tie(low, ignore) = nodes[i];
     if (low == -1) {
-      getCuttingEdge_(i);
+      run_(i);
     }
   }
-  sort(ans.begin(), ans.end());
-  return ans;
+  sort(cutEdge.begin(), cutEdge.end());
+  sort(cutNode.begin(), cutNode.end());
 }
 
-void TarjanNonRecursive::getCuttingEdge_(int u) {
+void TarjanNonRecursive::run_(int u) {
   vector<vector<Edge>> init = {{{-1, 0}}};
   stack.push(make_tuple(-1, -1, init[0].begin()));
   int cn = u, pe = -1, low = -1, dfn = -1, nlow = -1, ndfn = -1;
@@ -116,18 +121,17 @@ void TarjanNonRecursive::getCuttingEdge_(int u) {
       low = min(low, nlow);
       nodes[cn] = make_tuple(low, dfn);
       if (dfn < nlow) {
-        ans.push_back(ne->id);
+        cutEdge.push_back(ne->id);
       }
-      ne++;
-      stack.pop();
-      stack.push(make_tuple(cn, pe, ne));
+      if (dfn <= nlow) {
+        cutNode.push_back(cn);
+      }
+      std::get<2>(stack.top()) = ++ne;
       continue;
     }
 
     if (ne->id == pe) {
-      ne++;
-      stack.pop();
-      stack.push(make_tuple(cn, pe, ne));
+      std::get<2>(stack.top()) = ++ne;
       continue;
     }
     tie(nlow, ndfn) = nodes[ne->node];
@@ -143,16 +147,14 @@ void TarjanNonRecursive::getCuttingEdge_(int u) {
       low = min(low, nlow);
       nodes[cn] = make_tuple(low, dfn);
       if (dfn < nlow) {
-        ans.push_back(ne->id);
+        cutEdge.push_back(ne->id);
       }
-      ne++;
-      stack.pop();
-      stack.push(make_tuple(cn, pe, ne));
+      std::get<2>(stack.top()) = ++ne;
     }
   }
 }
 
-TEST_CASE("TJ") {
+TEST_CASE("Tarjan") {
   SECTION("getCuttingEdge") {
     vector<vector<Edge>> edges{{{1, 0}, {12, 13}},                 // 0
                                {{0, 0}, {2, 1}, {9, 10}},          // 1
@@ -190,9 +192,7 @@ TEST_CASE("TJ") {
         {{10, 12}}                          // 11
     };
     TarjanNonRecursive t(edges.size(), edges);
-    vector<int> bridges = t.getCuttingEdge();
-    sort(bridges.begin(), bridges.end());
-    vector<int> ans = {0, 11, 12};
-    REQUIRE(bridges == ans);
+    vector<int> bridges = {0, 11, 12};
+    REQUIRE(bridges == t.getCuttingEdge());
   }
 }

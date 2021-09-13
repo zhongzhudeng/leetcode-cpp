@@ -13,9 +13,23 @@
 
 ## Notes
 
+### [CPP](docs/cpp.md)
+
 ### MST
 * 1135. Connecting Cities With Minimum Cost
 
 ### [Tarjan](docs/Tarjan.md)
 * 1192. Critical Connections in a Network
-* [1489.Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](docs/1489.findCriticalAndPseudoCriticalEdgesInMinimumSpanningTree.md#top)
+* [1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](docs/1489.findCriticalAndPseudoCriticalEdgesInMinimumSpanningTree.md#top)
+
+## Shortest Paths
+
+### Dijkstra
+
+
+
+### Bellman-Ford
+
+* 787. Cheapest Flights Within K Stops
+
+### Floyd

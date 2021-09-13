@@ -28,7 +28,7 @@ class Solution {
   }
 };
 
-TEST_CASE("Connecting Cities With Minimum Cost") {
+TEST_CASE("1135. Connecting Cities With Minimum Cost") {
   int n = 3;
   vector<vector<int>> connections = {{1, 2, 5}, {1, 3, 6}, {2, 3, 1}};
   int ans = 6;

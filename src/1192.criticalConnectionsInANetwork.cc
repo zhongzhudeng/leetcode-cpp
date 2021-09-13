@@ -36,7 +36,7 @@ vector<vector<int>> Solution::criticalConnections(
   return ans;
 }
 
-TEST_CASE("criticalConnections") {
+TEST_CASE("1192. Critical Connections in a Network") {
   Solution s;
   int n = 4;
   vector<vector<int>> in = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};

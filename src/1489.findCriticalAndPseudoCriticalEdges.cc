@@ -96,7 +96,8 @@ class Solution {
   }
 };
 
-TEST_CASE("1489") {
+TEST_CASE(
+    "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree") {
   Solution s;
   int n;
   vector<vector<int>> edges;

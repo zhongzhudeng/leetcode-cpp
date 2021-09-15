@@ -17,6 +17,7 @@
 
 ### MST
 * 1135. Connecting Cities With Minimum Cost
+* 1584. Min Cost to Connect All Points
 
 ### [Tarjan](docs/Tarjan.md)
 * 1192. Critical Connections in a Network

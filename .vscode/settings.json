@@ -3,7 +3,7 @@
     "--query-driver=/usr/bin/clang++",
     "--background-index",
     "--compile-commands-dir=build",
-    "--completion-style=bundled",
+    "--completion-style=detailed",
     "--header-insertion=iwyu",
     "--all-scopes-completion",
     "--fallback-style=Google",

@@ -4,6 +4,7 @@
     "--background-index",
     "--compile-commands-dir=build",
     "--completion-style=detailed",
+    "--enable-config",
     "--header-insertion=iwyu",
     "--all-scopes-completion",
     "--fallback-style=Google",

@@ -4,13 +4,12 @@
 #include "catch2/catch.hpp"
 #include "union_find.hpp"
 #include "vector"
-using namespace std;
-
+namespace std {
 class Solution {
  public:
   int minCostConnectPoints(vector<vector<int>>& points) {
     vector<std::array<int, 3>> edges;
-    int len = points.size();
+    int len = static_cast<int>(points.size());
     UnionFind uf(len);
     int ans = 0, edgeCount = 0;
     edges.reserve(len * (len - 1) / 2);
@@ -54,3 +53,4 @@ TEST_CASE("1584. Min Cost to Connect All Points") {
   output = 0;
   REQUIRE(s.minCostConnectPoints(points) == output);
 }
+}  // namespace std

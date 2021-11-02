@@ -34,3 +34,9 @@
 * 787. Cheapest Flights Within K Stops
 
 ### Floyd
+
+### [Rabin Karp](docs/Rabin_Karp.md)
+* 686. Repeated String Match
+
+## DP
+1787. Make the XOR of All Segments Equal to Zero

@@ -1,10 +1,7 @@
 #pragma once
 
 #include <initializer_list>
-#include <iostream>
-#include <list>
 #include <queue>
-#include <vector>
 
 namespace LeetCode {
 
@@ -19,19 +16,19 @@ void print_tree(TreeNode *root);
 bool is_same_tree(TreeNode *root1, TreeNode *root2);
 
 class Tree {
- public:
+public:
   TreeNode *root;
 
- private:
+private:
   std::queue<int> q;
 
- public:
+public:
   Tree(std::initializer_list<int> il);
   ~Tree();
   void print();
   bool operator==(const Tree &t2) const;
 
- private:
+private:
   TreeNode *deserialize(std::queue<int> &in);
 };
-}  // namespace LeetCode
+} // namespace LeetCode

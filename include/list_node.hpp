@@ -1,27 +1,25 @@
 #pragma once
 
 #include <initializer_list>
-#include <iostream>
-#include <vector>
 
 namespace LeetCode {
 struct ListNode {
   int val;
   ListNode *next;
-  ListNode(int x = 0, ListNode *p = nullptr) : val(x), next(nullptr){};
+  ListNode(int x = 0, ListNode *p = nullptr) : val(x), next(nullptr) {};
 };
 
 void print_list(ListNode *head);
 bool is_same_list(ListNode *l1, ListNode *l2);
 
 class List {
- public:
+public:
   ListNode *head;
 
- private:
+private:
   ListNode *tail;
 
- public:
+public:
   List();
   List(std::initializer_list<int> l);
   ~List();
@@ -29,4 +27,4 @@ class List {
   void print();
   bool operator==(const List &l1) const;
 };
-}  // namespace LeetCode
+} // namespace LeetCode

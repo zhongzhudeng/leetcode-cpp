@@ -1,10 +1,12 @@
 #include "list_node.hpp"
+#include <iostream>
 
 namespace LeetCode {
 void print_list(ListNode *head) {
   while (head != nullptr) {
     std::cout << head->val;
-    if (head->next != nullptr) std::cout << "->";
+    if (head->next != nullptr)
+      std::cout << "->";
     head = head->next;
   }
   std::cout << std::endl;
@@ -21,7 +23,8 @@ bool is_same_list(ListNode *l1, ListNode *l2) {
 List::List() { this->head = nullptr; }
 
 List::List(std::initializer_list<int> l) : head(nullptr), tail(nullptr) {
-  for (auto it : l) insert(it);
+  for (auto it : l)
+    insert(it);
 }
 
 List::~List() {
@@ -50,4 +53,4 @@ void List::print() { print_list(this->head); }
 bool List::operator==(const List &l1) const {
   return is_same_list(this->head, l1.head);
 }
-}  // namespace LeetCode
+} // namespace LeetCode

@@ -1,22 +1,21 @@
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <tarjan.hpp>
 #include <vector>
-
-#include <catch2/catch_all.hpp>
 
 using namespace std;
 
 class Solution {
- public:
+public:
   vector<vector<int>> criticalConnections(int n,
-                                          vector<vector<int>>& connections);
+                                          vector<vector<int>> &connections);
 };
 
-vector<vector<int>> Solution::criticalConnections(
-    int n, vector<vector<int>>& connections) {
+vector<vector<int>>
+Solution::criticalConnections(int n, vector<vector<int>> &connections) {
   std::vector<std::vector<Edge>> edges(n);
   int i = 0;
-  for (auto& e : connections) {
+  for (auto &e : connections) {
     auto first = e[0], second = e[1];
     Edge edge = {second, i};
     edges[first].push_back(edge);
@@ -27,16 +26,16 @@ vector<vector<int>> Solution::criticalConnections(
   TarjanNonRecursive tj(n, edges);
   auto res = tj.getCuttingEdge();
   vector<vector<int>> ans;
-  for (auto& e : res) {
+  for (auto &e : res) {
     ans.push_back(connections[e]);
   }
-  for (auto& e : ans) {
+  for (auto &e : ans) {
     sort(e.begin(), e.end());
   }
   return ans;
 }
 
-TEST_CASE("1192. Critical Connections in a Network") {
+TEST_CASE("1192. Critical Connections in a Network", "[1192]") {
   Solution s;
   int n = 4;
   vector<vector<int>> in = {{0, 1}, {1, 2}, {2, 0}, {1, 3}};

@@ -1,5 +1,6 @@
 #include "b_tree.hpp"
-#include <catch2/catch_all.hpp>
+#include <catch2/catch_test_macros.hpp>
+#include <iostream>
 
 namespace LeetCode {
 void print_tree(TreeNode *root) {
@@ -21,8 +22,10 @@ void print_tree(TreeNode *root) {
       cout << "NULL ";
     else
       cout << temp->val << " ";
-    if (temp->left != nullptr) root_ptrs.push(temp->left);
-    if (temp->right != nullptr) root_ptrs.push(temp->right);
+    if (temp->left != nullptr)
+      root_ptrs.push(temp->left);
+    if (temp->right != nullptr)
+      root_ptrs.push(temp->right);
     root_ptrs.pop();
   }
   cout << endl;
@@ -40,18 +43,22 @@ bool is_same_tree(TreeNode *root1, TreeNode *root2) {
 }
 
 Tree::Tree(std::initializer_list<int> il) : q(il) {
-  if (q.empty()) return;
+  if (q.empty())
+    return;
   root = deserialize(q);
 }
 
 void delete_root_helper(TreeNode *root) {
-  if (root == nullptr) return;
+  if (root == nullptr)
+    return;
   TreeNode *p_left = root->left;
   TreeNode *p_right = root->right;
   delete root;
   root = nullptr;
-  if (p_left != nullptr) delete_root_helper(p_left);
-  if (p_right != nullptr) delete_root_helper(p_right);
+  if (p_left != nullptr)
+    delete_root_helper(p_left);
+  if (p_right != nullptr)
+    delete_root_helper(p_right);
   return;
 }
 
@@ -61,7 +68,8 @@ TreeNode *Tree::deserialize(std::queue<int> &in) {
   using std::queue;
 
   queue<TreeNode *> root_ptrs;
-  if (in.empty() || in.front() == 0) return nullptr;
+  if (in.empty() || in.front() == 0)
+    return nullptr;
   TreeNode *temp = new TreeNode(in.front());
   TreeNode *ret = temp;
   in.pop();
@@ -73,15 +81,18 @@ TreeNode *Tree::deserialize(std::queue<int> &in) {
     else
       temp->left = new TreeNode(in.front());
     in.pop();
-    if (in.empty()) break;
+    if (in.empty())
+      break;
     if (in.front() == 0)
       temp->right = nullptr;
     else
       temp->right = new TreeNode(in.front());
     in.pop();
 
-    if (temp->left != nullptr) root_ptrs.push(temp->left);
-    if (temp->right != nullptr) root_ptrs.push(temp->right);
+    if (temp->left != nullptr)
+      root_ptrs.push(temp->left);
+    if (temp->right != nullptr)
+      root_ptrs.push(temp->right);
 
     root_ptrs.pop();
   }
@@ -93,4 +104,4 @@ void Tree::print() { print_tree(root); }
 bool Tree::operator==(const Tree &t2) const {
   return is_same_tree(root, t2.root);
 }
-}  // namespace LeetCode
+} // namespace LeetCode

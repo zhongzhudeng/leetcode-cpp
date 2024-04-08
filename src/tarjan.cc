@@ -1,21 +1,15 @@
 #include "tarjan.hpp"
-
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <stack>
 #include <tuple>
 #include <vector>
 
-#include <catch2/catch_all.hpp>
-
 using namespace std;
 
-TarjanRecursive::TarjanRecursive(int n_, const vector<vector<int>>& edges_,
-                                 const vector<vector<int>>& edgesId_)
-    : edges(edges_),
-      edgesId(edgesId_),
-      low(n_, -1),
-      dfn(n_, -1),
-      n(n_),
+TarjanRecursive::TarjanRecursive(int n_, const vector<vector<int>> &edges_,
+                                 const vector<vector<int>> &edgesId_)
+    : edges(edges_), edgesId(edgesId_), low(n_, -1), dfn(n_, -1), n(n_),
       ts(-1) {}
 
 vector<int> TarjanRecursive::getCuttingEdge() {
@@ -79,7 +73,7 @@ TEST_CASE("TarjanSCC") {
 }
 
 TarjanNonRecursive::TarjanNonRecursive(int n_,
-                                       const vector<vector<Edge>>& edges_)
+                                       const vector<vector<Edge>> &edges_)
     : n(n_), ts(-1), edges(edges_), nodes(n_, make_tuple(-1, -1)) {
   run();
 }
@@ -156,18 +150,18 @@ void TarjanNonRecursive::run_(int u) {
 
 TEST_CASE("Tarjan") {
   SECTION("getCuttingEdge") {
-    vector<vector<Edge>> edges{{{1, 0}, {12, 13}},                 // 0
-                               {{0, 0}, {2, 1}, {9, 10}},          // 1
-                               {{1, 1}, {3, 2}},                   // 2
-                               {{2, 2}, {4, 3}, {8, 8}},           // 3
-                               {{3, 3}, {5, 4}, {10, 11}},         // 4
-                               {{4, 4}, {6, 5}, {7, 13}},          // 5
-                               {{5, 5}, {7, 6}},                   // 6
-                               {{6, 6}, {8, 7}, {9, 9}, {5, 13}},  // 7
-                               {{3, 8}, {7, 7}},                   // 8
-                               {{1, 10}, {7, 9}},                  // 9
-                               {{4, 11}, {11, 12}},                // 10
-                               {{10, 12}},                         // 11
+    vector<vector<Edge>> edges{{{1, 0}, {12, 13}},                // 0
+                               {{0, 0}, {2, 1}, {9, 10}},         // 1
+                               {{1, 1}, {3, 2}},                  // 2
+                               {{2, 2}, {4, 3}, {8, 8}},          // 3
+                               {{3, 3}, {5, 4}, {10, 11}},        // 4
+                               {{4, 4}, {6, 5}, {7, 13}},         // 5
+                               {{5, 5}, {7, 6}},                  // 6
+                               {{6, 6}, {8, 7}, {9, 9}, {5, 13}}, // 7
+                               {{3, 8}, {7, 7}},                  // 8
+                               {{1, 10}, {7, 9}},                 // 9
+                               {{4, 11}, {11, 12}},               // 10
+                               {{10, 12}},                        // 11
                                {{0, 13}}};
 
     TarjanNonRecursive t(edges.size(), edges);
@@ -178,18 +172,18 @@ TEST_CASE("Tarjan") {
   }
   SECTION("getCuttingEdge") {
     vector<vector<Edge>> edges = {
-        {{1, 0}},                           // 0
-        {{0, 0}, {2, 1}, {9, 10}},          // 1
-        {{1, 1}, {3, 2}},                   // 2
-        {{2, 2}, {4, 3}, {8, 8}},           // 3
-        {{3, 3}, {5, 4}, {10, 11}},         // 4
-        {{4, 4}, {6, 5}, {7, 13}},          // 5
-        {{5, 5}, {7, 6}},                   // 6
-        {{6, 6}, {8, 7}, {9, 9}, {5, 13}},  // 7
-        {{3, 8}, {7, 7}},                   // 8
-        {{1, 10}, {7, 9}},                  // 9
-        {{4, 11}, {11, 12}},                // 10
-        {{10, 12}}                          // 11
+        {{1, 0}},                          // 0
+        {{0, 0}, {2, 1}, {9, 10}},         // 1
+        {{1, 1}, {3, 2}},                  // 2
+        {{2, 2}, {4, 3}, {8, 8}},          // 3
+        {{3, 3}, {5, 4}, {10, 11}},        // 4
+        {{4, 4}, {6, 5}, {7, 13}},         // 5
+        {{5, 5}, {7, 6}},                  // 6
+        {{6, 6}, {8, 7}, {9, 9}, {5, 13}}, // 7
+        {{3, 8}, {7, 7}},                  // 8
+        {{1, 10}, {7, 9}},                 // 9
+        {{4, 11}, {11, 12}},               // 10
+        {{10, 12}}                         // 11
     };
     TarjanNonRecursive t(edges.size(), edges);
     vector<int> bridges = {0, 11, 12};

@@ -1,24 +1,22 @@
-#include <algorithm>
-#include <unordered_map>
-#include <vector>
-
-#include <catch2/catch_all.hpp>
-
 #include "tarjan.hpp"
 #include "union_find.hpp"
+#include <algorithm>
+#include <catch2/catch_test_macros.hpp>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
 class Solution {
- public:
-  vector<vector<int>> findCriticalAndPseudoCriticalEdges(
-      int n, vector<vector<int>>& edges) {
+public:
+  vector<vector<int>>
+  findCriticalAndPseudoCriticalEdges(int n, vector<vector<int>> &edges) {
     int m = edges.size();
     for (int i = 0; i < m; ++i) {
       edges[i].push_back(i);
     }
     sort(edges.begin(), edges.end(),
-         [](const auto& u, const auto& v) { return u[2] < v[2]; });
+         [](const auto &u, const auto &v) { return u[2] < v[2]; });
 
     UnionFind uf(n);
     vector<vector<int>> ans(2);
@@ -88,7 +86,7 @@ class Solution {
       }
     }
 
-    for (auto& v : ans) {
+    for (auto &v : ans) {
       sort(v.begin(), v.end());
     }
     sort(ans.begin(), ans.end());
@@ -98,7 +96,7 @@ class Solution {
 };
 
 TEST_CASE(
-    "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree") {
+    "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree", "[1489]") {
   Solution s;
   int n;
   vector<vector<int>> edges;

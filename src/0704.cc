@@ -1,20 +1,19 @@
 #include <algorithm>
+#include <catch2/catch_test_macros.hpp>
 #include <vector>
-
-#include <catch2/catch_all.hpp>
 
 namespace std {
 
 class Solution {
- public:
-  int search(vector<int>& nums, int target) {
+public:
+  int search(vector<int> &nums, int target) {
     auto it = lower_bound(nums.begin(), nums.end(), target);
     return (it != nums.end() && *it == target) ? distance(nums.begin(), it)
                                                : -1;
   }
 };
 
-TEST_CASE("704. Binary Search") {
+TEST_CASE("704. Binary Search","[704]") {
   Solution s;
   vector<int> nums = {-1, 0, 3, 5, 9, 12};
   int target = 9;
@@ -29,4 +28,4 @@ TEST_CASE("704. Binary Search") {
   output = -1;
   REQUIRE(s.search(nums, target) == output);
 }
-}  // namespace std
+} // namespace std

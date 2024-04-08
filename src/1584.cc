@@ -1,14 +1,12 @@
-#include <algorithm>
-#include <array>
-
-#include <catch2/catch_all.hpp>
-
 #include "union_find.hpp"
 #include "vector"
+#include <algorithm>
+#include <array>
+#include <catch2/catch_test_macros.hpp>
 namespace std {
 class Solution {
- public:
-  int minCostConnectPoints(vector<vector<int>>& points) {
+public:
+  int minCostConnectPoints(vector<vector<int>> &points) {
     vector<std::array<int, 3>> edges;
     int len = static_cast<int>(points.size());
     UnionFind uf(len);
@@ -22,9 +20,9 @@ class Solution {
       }
     }
     sort(edges.begin(), edges.end(),
-         [](const auto& u, const auto& v) { return u[2] < v[2]; });
+         [](const auto &u, const auto &v) { return u[2] < v[2]; });
 
-    for (auto& e : edges) {
+    for (auto &e : edges) {
       if (edgeCount == len - 1) {
         return ans;
       }
@@ -39,7 +37,7 @@ class Solution {
   }
 };
 
-TEST_CASE("1584. Min Cost to Connect All Points") {
+TEST_CASE("1584. Min Cost to Connect All Points", "[1584]") {
   Solution s;
   vector<vector<int>> points = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
   int output = 20;
@@ -54,4 +52,4 @@ TEST_CASE("1584. Min Cost to Connect All Points") {
   output = 0;
   REQUIRE(s.minCostConnectPoints(points) == output);
 }
-}  // namespace std
+} // namespace std

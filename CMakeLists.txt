@@ -1,21 +1,15 @@
-cmake_minimum_required(VERSION 3.14...3.21)
+cmake_minimum_required(VERSION 3.14..)
 
 project(
   leetcode 
   LANGUAGES CXX)
 
-include(FetchContent)
-FetchContent_Declare(
-  catch
-  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-  GIT_TAG v2.13.6)
-
-FetchContent_MakeAvailable(catch)
+find_package(Catch2 3 REQUIRED)
 
 aux_source_directory(src EXECUTABLE)
-add_executable(tests main.cpp ${EXECUTABLE})
-target_link_libraries(tests PRIVATE Catch2::Catch2)
+add_executable(tests ${EXECUTABLE})
+# add_executable(tests test-main.cpp ${EXECUTABLE})
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
 target_include_directories(tests PUBLIC include)
-target_compile_features(tests PUBLIC cxx_std_17)
-# target_compile_definitions(tests PUBLIC CATCH_CONFIG_ENABLE_BENCHMARKING)
+target_compile_features(tests PUBLIC cxx_std_20)
 add_test(NAME tests COMMAND tests)

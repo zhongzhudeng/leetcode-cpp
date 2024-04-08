@@ -2,7 +2,8 @@
 #include <unordered_map>
 #include <vector>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
+
 #include "tarjan.hpp"
 #include "union_find.hpp"
 

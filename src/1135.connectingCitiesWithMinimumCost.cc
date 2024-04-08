@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <vector>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
+
 #include "union_find.hpp"
 using namespace std;
 class Solution {

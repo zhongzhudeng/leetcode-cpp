@@ -1,5 +1,5 @@
 #include "b_tree.hpp"
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 
 namespace LeetCode {
 void print_tree(TreeNode *root) {

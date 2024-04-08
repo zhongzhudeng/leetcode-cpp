@@ -1,7 +1,6 @@
-#include <queue>
 #include <vector>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
 using namespace std;
 
 class Solution {
@@ -21,7 +20,7 @@ class Solution {
         int j = flight[0], i = flight[1], cost = flight[2];
         g[i] = min(g[i], f[j] + cost);
       }
-      f = move(g);
+      f = std::move(g);
       ans = min(ans, f[dst]);
     }
     return (ans == INF ? -1 : ans);

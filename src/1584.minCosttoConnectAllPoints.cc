@@ -1,7 +1,8 @@
 #include <algorithm>
 #include <array>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch_all.hpp>
+
 #include "union_find.hpp"
 #include "vector"
 namespace std {

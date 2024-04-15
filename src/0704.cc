@@ -13,7 +13,7 @@ public:
   }
 };
 
-TEST_CASE("704. Binary Search","[704]") {
+TEST_CASE("704. Binary Search","[0704]") {
   Solution s;
   vector<int> nums = {-1, 0, 3, 5, 9, 12};
   int target = 9;

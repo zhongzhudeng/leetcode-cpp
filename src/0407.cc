@@ -50,7 +50,7 @@ public:
   }
 };
 
-TEST_CASE("407. Trapping Rain Water 2", "[407]") {
+TEST_CASE("407. Trapping Rain Water 2", "[0407]") {
   Solution s;
   vector<vector<int>> in = {
       {1, 4, 3, 1, 3, 2}, {3, 2, 1, 3, 2, 4}, {2, 3, 3, 2, 3, 1}};

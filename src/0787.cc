@@ -26,7 +26,7 @@ public:
   }
 };
 
-TEST_CASE("787. Cheapest Flights Within K Stops", "[787]") {
+TEST_CASE("787. Cheapest Flights Within K Stops", "[0787]") {
   Solution s;
   int n = 3, src = 0, dst = 2, k = 1, output = 200;
   vector<vector<int>> flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};

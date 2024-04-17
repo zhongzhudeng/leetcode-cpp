@@ -62,6 +62,7 @@ std::vector<std::string> run(std::vector<std::string> &cmd,
       ans.push_back("null");
     }
   }
+  delete mhm;
   return ans;
 }
 

@@ -1,6 +1,6 @@
 #include "union_find.hpp"
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
+
 #include <vector>
 
 using namespace std;
@@ -28,6 +28,7 @@ public:
   }
 };
 
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE("1135. Connecting Cities With Minimum Cost", "[1135]") {
   int n = 3;
   vector<vector<int>> connections = {{1, 2, 5}, {1, 3, 6}, {2, 3, 1}};

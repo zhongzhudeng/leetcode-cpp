@@ -1,7 +1,6 @@
 #include <numeric>
 #include <vector>
 
-#include <catch2/catch_test_macros.hpp>
 using namespace std;
 
 class Solution {
@@ -15,6 +14,8 @@ public:
     return 0;
   }
 };
+
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("2923. Find Champion I", "[2923]") {
   Solution s;

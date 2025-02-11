@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <unordered_set>
 #include <vector>
 using namespace std;
@@ -24,6 +23,8 @@ public:
     return res;
   }
 };
+
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("2009. Minimum Number of Operations to Make Array Continuous",
           "[2009]") {

@@ -2,8 +2,8 @@
 #include "vector"
 #include <algorithm>
 #include <array>
-#include <catch2/catch_test_macros.hpp>
-namespace std {
+
+using namespace std;
 class Solution {
 public:
   int minCostConnectPoints(vector<vector<int>> &points) {
@@ -37,6 +37,8 @@ public:
   }
 };
 
+#include <catch2/catch_test_macros.hpp>
+
 TEST_CASE("1584. Min Cost to Connect All Points", "[1584]") {
   Solution s;
   vector<vector<int>> points = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
@@ -52,4 +54,3 @@ TEST_CASE("1584. Min Cost to Connect All Points", "[1584]") {
   output = 0;
   REQUIRE(s.minCostConnectPoints(points) == output);
 }
-} // namespace std

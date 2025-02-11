@@ -1,7 +1,5 @@
 #include <list>
 #include <vector>
-
-#include <catch2/catch_test_macros.hpp>
 using namespace std;
 
 class MyHashMap {
@@ -65,6 +63,8 @@ std::vector<std::string> run(std::vector<std::string> &cmd,
   delete mhm;
   return ans;
 }
+
+#include <catch2/catch_test_macros.hpp>
 
 TEST_CASE("0706. Design HashMap", "[0706]") {
   std::vector<std::string> cmd = {"MyHashMap", "put", "put",    "get", "get",

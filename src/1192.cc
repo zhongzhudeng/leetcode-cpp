@@ -1,5 +1,5 @@
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
+
 #include <tarjan.hpp>
 #include <vector>
 
@@ -35,6 +35,7 @@ Solution::criticalConnections(int n, vector<vector<int>> &connections) {
   return ans;
 }
 
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE("1192. Critical Connections in a Network", "[1192]") {
   Solution s;
   int n = 4;

@@ -1,6 +1,6 @@
 
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
+
 #include <queue>
 #include <vector>
 using namespace std;
@@ -50,6 +50,7 @@ public:
   }
 };
 
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE("407. Trapping Rain Water 2", "[0407]") {
   Solution s;
   vector<vector<int>> in = {

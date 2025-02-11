@@ -1,4 +1,3 @@
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 using namespace std;
 
@@ -26,6 +25,7 @@ public:
   }
 };
 
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE("787. Cheapest Flights Within K Stops", "[0787]") {
   Solution s;
   int n = 3, src = 0, dst = 2, k = 1, output = 200;

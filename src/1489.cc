@@ -1,7 +1,6 @@
 #include "tarjan.hpp"
 #include "union_find.hpp"
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <unordered_map>
 #include <vector>
 
@@ -94,9 +93,10 @@ public:
     return ans;
   }
 };
-
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE(
-    "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree", "[1489]") {
+    "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree",
+    "[1489]") {
   Solution s;
   int n;
   vector<vector<int>> edges;

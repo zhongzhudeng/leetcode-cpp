@@ -1,9 +1,7 @@
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <vector>
 
-namespace std {
-
+using namespace std;
 class Solution {
 public:
   int search(vector<int> &nums, int target) {
@@ -13,7 +11,8 @@ public:
   }
 };
 
-TEST_CASE("704. Binary Search","[0704]") {
+#include <catch2/catch_test_macros.hpp>
+TEST_CASE("704. Binary Search", "[0704]") {
   Solution s;
   vector<int> nums = {-1, 0, 3, 5, 9, 12};
   int target = 9;
@@ -28,4 +27,3 @@ TEST_CASE("704. Binary Search","[0704]") {
   output = -1;
   REQUIRE(s.search(nums, target) == output);
 }
-} // namespace std

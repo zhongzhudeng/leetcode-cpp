@@ -1,17 +1,10 @@
 #pragma once
 
 #include <stack>
+#include <tuple>
 #include <vector>
 
-class Tarjan {
-public:
-  // Tarjan() = default;
-  // virtual ~Tarjan() = default;
-  virtual std::vector<int> getCuttingEdge() = 0;
-  // virtual std::vector<int> getCuttingVertex();
-};
-
-class TarjanRecursive : public Tarjan {
+class TarjanRecursive {
 private:
   const std::vector<std::vector<int>> &edges;
   const std::vector<std::vector<int>> &edgesId;
@@ -27,7 +20,7 @@ private:
 public:
   explicit TarjanRecursive(int n_, const std::vector<std::vector<int>> &edges_,
                            const std::vector<std::vector<int>> &edgesId_);
-  std::vector<int> getCuttingEdge() override;
+  std::vector<int> getCuttingEdge();
   std::vector<int> getCuttingVertex(int u);
 };
 
@@ -36,7 +29,7 @@ struct Edge {
   int id;
 };
 
-class TarjanNonRecursive : public Tarjan {
+class TarjanNonRecursive {
 private:
   const std::vector<std::vector<Edge>> &edges;
   // low, dfn
@@ -54,6 +47,6 @@ private:
 public:
   explicit TarjanNonRecursive(int n_,
                               const std::vector<std::vector<Edge>> &edges_);
-  std::vector<int> getCuttingEdge() override;
+  std::vector<int> getCuttingEdge();
   std::vector<int> getCuttingNode();
 };

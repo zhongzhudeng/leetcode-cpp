@@ -28,7 +28,7 @@ public:
       }
       auto p1 = e[0], p2 = e[1], w = e[2];
       if (uf.find(p1) != uf.find(p2)) {
-        uf.unite(p1, p2);
+        uf.merge(p1, p2);
         ans += w;
         edgeCount++;
       }
@@ -38,7 +38,6 @@ public:
 };
 
 #include <catch2/catch_test_macros.hpp>
-
 TEST_CASE("1584. Min Cost to Connect All Points", "[1584]") {
   Solution s;
   vector<vector<int>> points = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};

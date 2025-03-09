@@ -1,7 +1,5 @@
 #include <string>
 #include <string_view>
-#include <vector>
-
 using namespace std;
 
 class Solution {

@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
-class Solution {
 
+class Solution {
 public:
   int isValid(vector<int> &nums) { return 1; }
 };

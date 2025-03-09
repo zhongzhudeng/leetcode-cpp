@@ -25,7 +25,6 @@ public:
 };
 
 #include <catch2/catch_test_macros.hpp>
-
 TEST_CASE("2009. Minimum Number of Operations to Make Array Continuous",
           "[2009]") {
   Solution s;

@@ -1,9 +1,8 @@
 #include "union_find.hpp"
 #include <algorithm>
-
 #include <vector>
-
 using namespace std;
+
 class Solution {
 public:
   int minimumCost(int n, vector<vector<int>> &connections) {
@@ -14,15 +13,14 @@ public:
     for (auto &e : connections) {
       int c1 = e[0] - 1, c2 = e[1] - 1, w = e[2];
       if (uf.find(c1) != uf.find(c2)) {
-        uf.unite(c1, c2);
+        uf.merge(c1, c2);
         ans += w;
         edgeCount++;
       }
     }
 
-    if (edgeCount != n - 1) {
+    if (edgeCount != n - 1)
       return -1;
-    }
 
     return ans;
   }

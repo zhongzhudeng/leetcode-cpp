@@ -1,39 +1,34 @@
+#include "tarjan.hpp"
 #include <algorithm>
-
-#include <tarjan.hpp>
 #include <vector>
-
 using namespace std;
 
 class Solution {
 public:
   vector<vector<int>> criticalConnections(int n,
-                                          vector<vector<int>> &connections);
+                                          vector<vector<int>> &connections) {
+    std::vector<std::vector<Edge>> edges(n);
+    int i = 0;
+    for (auto &e : connections) {
+      auto first = e[0], second = e[1];
+      Edge edge = {second, i};
+      edges[first].push_back(edge);
+      edge.node = first;
+      edges[second].push_back(edge);
+      i++;
+    }
+    TarjanNonRecursive tj(n, edges);
+    auto res = tj.getCuttingEdge();
+    vector<vector<int>> ans;
+    for (auto &e : res) {
+      ans.push_back(connections[e]);
+    }
+    for (auto &e : ans) {
+      sort(e.begin(), e.end());
+    }
+    return ans;
+  }
 };
-
-vector<vector<int>>
-Solution::criticalConnections(int n, vector<vector<int>> &connections) {
-  std::vector<std::vector<Edge>> edges(n);
-  int i = 0;
-  for (auto &e : connections) {
-    auto first = e[0], second = e[1];
-    Edge edge = {second, i};
-    edges[first].push_back(edge);
-    edge.node = first;
-    edges[second].push_back(edge);
-    i++;
-  }
-  TarjanNonRecursive tj(n, edges);
-  auto res = tj.getCuttingEdge();
-  vector<vector<int>> ans;
-  for (auto &e : res) {
-    ans.push_back(connections[e]);
-  }
-  for (auto &e : ans) {
-    sort(e.begin(), e.end());
-  }
-  return ans;
-}
 
 #include <catch2/catch_test_macros.hpp>
 TEST_CASE("1192. Critical Connections in a Network", "[1192]") {

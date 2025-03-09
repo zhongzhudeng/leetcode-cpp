@@ -1,5 +1,4 @@
 #include <algorithm>
-
 #include <vector>
 using namespace std;
 
@@ -13,7 +12,6 @@ public:
 };
 
 #include <catch2/catch_test_macros.hpp>
-
 TEST_CASE("2529. Maximum Count of Positive Integer and Negative Integer",
           "[2529]") {
   Solution s;

@@ -2,7 +2,6 @@
 #include "union_find.hpp"
 #include <algorithm>
 #include <unordered_map>
-#include <vector>
 
 using namespace std;
 
@@ -72,7 +71,7 @@ public:
       }
 
       for (int k = i; k < j; ++k) {
-        uf.unite(edges[k][0], edges[k][1]);
+        uf.merge(edges[k][0], edges[k][1]);
       }
 
       i = j;
@@ -93,6 +92,7 @@ public:
     return ans;
   }
 };
+
 #include <catch2/catch_test_macros.hpp>
 TEST_CASE(
     "1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree",

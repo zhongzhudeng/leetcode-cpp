@@ -1,26 +1,18 @@
 #include "union_find.hpp"
-
 #include <numeric>
 
-UnionFind::UnionFind(int _n) : n(_n), setCount(_n), parent(_n), rank(_n, 1) {
-  std::iota(parent.begin(), parent.end(), 0);
+UnionFind::UnionFind(int n) : fa(n), rank(n, 1) {
+  std::iota(fa.begin(), fa.end(), 0);
 }
 
-int UnionFind::find(int x) {
-  return parent[x] == x ? x : (parent[x] = find(parent[x]));
-}
+int UnionFind::find(int i) { return i == fa[i] ? i : (fa[i] = find(fa[i])); }
 
-bool UnionFind::unite(int x, int y) {
-  x = find(x);
-  y = find(y);
-  if (x == y) {
-    return false;
-  }
-  if (rank[x] < rank[y]) {
-    std::swap(x, y);
-  }
-  parent[y] = x;
-  rank[x] += rank[y];
-  --setCount;
-  return true;
+void UnionFind::merge(int u, int v) {
+  int x = find(u), y = find(v);
+  if (rank[x] <= rank[y])
+    fa[x] = y;
+  else
+    fa[y] = x;
+  if (rank[x] == rank[y] && x != y)
+    rank[y]++;
 }

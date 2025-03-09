@@ -2,6 +2,10 @@
 
 ## How to use
 
+### Dependencies
+
+catch2
+
 ### Build System
 
 * CMake
@@ -9,19 +13,19 @@
 
 ### Recommended Intellisense Engine
 
-* [clangd](https://clangd.llvm.org)
+[clangd](https://clangd.llvm.org)
 
 ## Notes
 
 ### [CPP](docs/cpp.md)
 
 ### MST
-* 1135. Connecting Cities With Minimum Cost
-* 1584. Min Cost to Connect All Points
+1135. Connecting Cities With Minimum Cost
+1584. Min Cost to Connect All Points
 
 ### [Tarjan](docs/Tarjan.md)
-* 1192. Critical Connections in a Network
-* [1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](docs/1489.findCriticalAndPseudoCriticalEdgesInMinimumSpanningTree.md#top)
+1192. Critical Connections in a Network
+1489. Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree](docs/1489.findCriticalAndPseudoCriticalEdgesInMinimumSpanningTree.md#top)
 
 ## Shortest Paths
 

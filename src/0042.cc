@@ -39,7 +39,6 @@ public:
 };
 
 #include <catch2/catch_test_macros.hpp>
-
 TEST_CASE("42. Trapping Rain Water", "[0042]") {
   Solution s;
   vector<int> in = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};

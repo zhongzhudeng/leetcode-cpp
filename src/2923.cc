@@ -16,7 +16,6 @@ public:
 };
 
 #include <catch2/catch_test_macros.hpp>
-
 TEST_CASE("2923. Find Champion I", "[2923]") {
   Solution s;
   std::vector<std::vector<int>> in = {{0, 0, 1}, {1, 0, 1}, {0, 0, 0}};

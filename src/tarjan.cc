@@ -1,6 +1,5 @@
 #include "tarjan.hpp"
 #include <algorithm>
-#include <catch2/catch_test_macros.hpp>
 #include <stack>
 #include <tuple>
 #include <vector>
@@ -45,6 +44,7 @@ vector<int> TarjanRecursive::getCuttingVertex(int u) {
   return ans;
 }
 
+#include <catch2/catch_test_macros.hpp>
 TEST_CASE("TarjanSCC") {
   int n = 12;
   vector<vector<int>> edges{{1},        {0, 2, 9}, {1, 3},  {2, 4, 8},
